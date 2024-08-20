@@ -15,12 +15,12 @@ items:
           }
         ]
     labels:
-      app: rhel9-pleasant-piranha
+      app: prod-pleasant-piranha
       kubevirt.io/dynamic-credentials-support: "true"
       vm.kubevirt.io/template: rhel9-server-small
       vm.kubevirt.io/template.revision: "1"
       vm.kubevirt.io/template.version: v0.26.0
-    name: rhel9-pleasant-piranha
+    name: prod-pleasant-piranha
   spec:    
     running: true
     template:
@@ -30,7 +30,7 @@ items:
           vm.kubevirt.io/os: rhel9
           vm.kubevirt.io/workload: server
         labels:
-          kubevirt.io/domain: rhel9-pleasant-piranha
+          kubevirt.io/domain: prod-pleasant-piranha
           kubevirt.io/size: small
       spec:
         domain:
@@ -42,7 +42,7 @@ items:
             disks:
             - disk:
                 bus: virtio
-              name: pleasant-rootdisk
+              name: prod-pleasant-rootdisk
             - disk:
                 bus: virtio
               name: cloudinitdisk
@@ -68,8 +68,8 @@ items:
         terminationGracePeriodSeconds: 180
         volumes:
         - persistentVolumeClaim:
-            claimName: pleasant-piranha-disk
-          name: pleasant-rootdisk
+            claimName: prod-pleasant-piranha-disk
+          name: prod-pleasant-rootdisk
         - cloudInitNoCloud:
             userData: |-
               #cloud-config

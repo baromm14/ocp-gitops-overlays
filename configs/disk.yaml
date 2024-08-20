@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: pleasant-piranha-disk
+  name: import-disk
   namespace: beehive-virtual-machines
 spec:
   dataSourceRef:
     apiGroup: cdi.kubevirt.io
     kind: VolumeImportSource
-    name: pleasant-import-source
+    name: import-source
   accessModes:
     - ReadWriteMany
   volumeMode: Block
