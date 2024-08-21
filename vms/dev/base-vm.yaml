@@ -2,14 +2,14 @@ apiVersion: kubevirt.io/v1
 kind: VirtualMachine
 metadata:
   labels:
-    app:  
-  name: 
+    app: base-vm 
+  name: base-vm
 spec:    
-    running: false
+    running: true
     template:
       metadata:
         labels:
-          kubevirt.io/domain: 
+          kubevirt.io/domain: base-vm
       spec:
         domain:
           cpu:
@@ -20,7 +20,7 @@ spec:
             disks:
             - disk:
                 bus: virtio
-              name: 
+              name: rootdisk
             - disk:
                 bus: virtio
               name: cloudinitdisk
@@ -43,8 +43,8 @@ spec:
           pod: {}
         volumes:
         - persistentVolumeClaim:
-              claimName: 
-          name: 
+              claimName: base-vm-disk
+          name: rootdisk
         - cloudInitNoCloud:
             userData: |-
               #cloud-config
