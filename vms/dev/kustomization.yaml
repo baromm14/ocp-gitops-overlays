@@ -1,6 +1,8 @@
-resources:
 #  - dev-pleasant-piranha.yaml
-  - ../../configs
+resources:
+- ../../configs
 
-patchesStrategicMerge:
-  - dev-pleasant-piranha.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+patches:
+- path: dev-pleasant-piranha.yaml
